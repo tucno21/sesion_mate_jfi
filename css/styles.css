@@ -1,0 +1,322 @@
+:root{
+    --green:#10AC84;
+    --black: #222F3E;
+    --white:#C8D6E5;
+    --blue:#2E86DE;
+}
+
+*{
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: 'Kanit', sans-serif;
+}
+
+img{
+    max-width: 100%;
+}
+
+/*CABECERA - HEADER DONDE ESTA EL MENU*/
+
+.header{
+    height: 6rem;
+    width: 100%;
+    background-color: var(--green);
+    position: fixed;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+/*=========================*/
+/*logo*/
+.header__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: var(--white);
+    font-size: 2rem;
+}
+
+.header__title{
+}
+
+/*=========================*/
+
+/*botones de menu*/
+.menu__hide,
+.menu__show{
+    font-size: 3rem;
+}
+
+.menu__hide:hover,
+.menu__show:hover{
+    color: var(--black);
+    cursor: pointer;
+}
+
+.menu__check{
+    display: none;
+}
+
+/*=========================*/
+/*MENU*/
+
+.menu{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--green);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform .4s;
+}
+
+.menu__link{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    display: block;
+    padding: 2rem 0;
+    width: 100vw;
+    text-align: center;
+    color: var(--white);
+}
+
+.menu__link:hover{
+    border-radius: 7px;
+    transition: background-color .5s;    
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+
+.menu__hide{
+    color: var(--white);
+    padding-top: 1.5rem;
+    position: relative;
+    left: calc(100% - 70%);
+}
+
+.menu__check:checked ~ .menu{
+    transform: translateX(0);
+    z-index: 1000;
+}
+
+/*=========================*/
+/*EL LOGO DE APRENDO EN CASA Y LA PRESENTACION*/
+
+.presentation{
+    padding: 2rem 2rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.presentation__img{
+    margin-top: 5rem;
+    width: calc(100% - 10%);
+}
+
+/*=========================*/
+/*seciones de meses y semanas*/
+
+
+.main__container{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    padding: 3rem;
+}
+
+.months{
+    /* margin: 1rem; */
+    overflow: hidden;
+    border-radius: 1.5rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.months__btn{
+    display: grid;
+    place-content: center;
+    padding: 1rem 0;
+    background-color: var(--green);
+    color: var(--white);
+    position: relative;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: .3rem;
+    border-radius: 1.5rem 1.5rem 0 0;
+    z-index: 100;
+}
+
+.months__btn:hover{
+    color: var(--black);
+}
+
+.months__smenu{
+    background-color: var(--black);
+    position: relative;
+    overflow: hidden;
+    transition: max-height .3s;
+    max-height: 0;
+    transition: max-height .6s;
+}
+
+
+.months__link{
+    display: block;
+    padding: 16px 26px;
+    color: var(--white);
+    font-size: 14px;
+    margin: .4rem 0;
+    position: relative;
+    font-size: 2rem;
+}
+
+.months__link::before{
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background-color: var(--green);
+    left: 0;
+    top: 0;
+    transition: .3s;
+    opacity: 0;
+}
+
+.months__link:hover::before{
+    opacity: 1;
+}
+
+.months:target .months__smenu{
+    max-height: 40rem;
+}
+.months:target .months__btn{
+    color: var(--black);
+}
+
+/*==================================*/
+
+/*=========================*/
+/*foter*/
+
+.footer{
+    height: 4rem;
+    width: 100%;
+    background-color: var(--black);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 1.5rem;
+    z-index: 100;
+}
+
+.footer__whatsapp{
+    position: fixed;
+    color: #00bb2d ;
+    cursor: pointer;
+    display: block;
+    bottom: 2rem;
+    right: 2rem;
+    width: 5rem;
+    filter: drop-shadow( 2px 2px 8px rgba(0, 0, 0, .7));
+}
+
+.footer__whatsapp:hover{
+    filter: drop-shadow( 5px 5px 8px rgba(0, 0, 0, .7));
+}
+
+
+@media (min-width: 768px){
+    .header{
+        /* padding: 0; */
+    }
+    .header__container{
+        width: auto;
+    }
+
+    .menu__hide,
+    .menu__show{
+        display: none;
+    }
+    .menu{
+        position: relative;
+        flex-direction: row;
+        height: 5rem;
+        width: auto;
+        transform: translateX(0);
+    }
+
+    .menu__link{
+        font-size: 2rem;
+        padding: 2rem 2rem;
+        margin: 0 .5rem;
+        width: auto;
+        text-align: center;
+        position: relative;
+    }
+    .menu__link::after,
+    .menu__link::before{
+        content: "";
+        display: block;
+        position: absolute;
+        height: 60%;
+        width: .2rem;
+        background-color: var(--white);
+        transition: transform .3s;
+        transform: translateY(-120%);
+    }
+
+    .menu__link::after{
+        top: 1rem;
+        left: 0;
+    }
+
+    .menu__link::before{
+        top: 1rem;
+        right: 0;
+    }
+
+    .menu__link:hover::after,
+    .menu__link:hover::before{
+        transform: translateY(0);
+    }
+
+    .presentation{
+        font-size: 2.5rem;
+    }
+    
+    .presentation__img{
+        width: calc(100% - 20%);
+    }
+
+    .main__container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    
+}
+
+@media (min-width: 1280px){
+    .main__container{
+        padding: 3rem 5rem;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .presentation__img{
+        width: calc(100% - 60%);
+    }
+}
